@@ -24,8 +24,6 @@ function fetchCountries(name) {
     });
 }
 
-fetchCountries('peru')
-
 // Пошук в input
 // debounce(onSearchInput, DEBOUNCE_DELAY) 
 searchBox.addEventListener('input', onSearchInput);
