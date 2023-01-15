@@ -24,14 +24,12 @@ function onSearchInput(event){
     }
 
     fetchCountries(inputValue).then(countryFetch => {
-        console.log(countryFetch);
 
         if(countryFetch.length > 10){
             Notify.info('Too many matches found. Please enter a more specific name.');
         }
 
         if (countryFetch.length >= 2 && countryFetch.length <= 10) {
-            // список країн
             createCountryMarkUp(countryFetch);
             countryInfo.innerHTML = '';
         }
