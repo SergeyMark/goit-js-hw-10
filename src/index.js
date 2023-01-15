@@ -40,7 +40,7 @@ function onSearchInput(event){
             createCountryMarUpAll(countryFetch);
             countryList.innerHTML = '';
         }
-    });
+    }).catch(error => Notify.failure('Oops, there is no country with that name'));
 };
 
 // верстка пошуку країн
