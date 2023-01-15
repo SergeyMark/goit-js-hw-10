@@ -1,5 +1,5 @@
 import './css/styles.css';
-// import fetchCountries from "./fetchCountries";
+import { fetchCountries } from './fetchCountries';
 // import debounce from 'lodash.debounce';
 // import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
@@ -9,20 +9,6 @@ const searchBox = document.querySelector('#search-box');
 const countryList = document.querySelector('.country-list');
 const countryInfo = document.querySelector('.country-info');
 
-
-// Запит на бекенд fetch
-function fetchCountries(name) {
-    const API_URL = 'https://restcountries.com/v3.1/name/';
-
-    return fetch(`${API_URL}${name}?fields=name,capital,population,flags,languages`).then(response => {
-        
-        if (!response.ok) {
-            throw new Error(response.statusText);
-        }
-
-        return response.json();
-    });
-}
 
 // Пошук в input
 // debounce(onSearchInput, DEBOUNCE_DELAY) 
