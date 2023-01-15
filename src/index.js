@@ -27,6 +27,8 @@ function onSearchInput(event){
 
         if(countryFetch.length > 10){
             Notify.info('Too many matches found. Please enter a more specific name.');
+            countryList.innerHTML = '';
+            countryInfo.innerHTML = '';
         }
 
         if (countryFetch.length >= 2 && countryFetch.length <= 10) {
@@ -38,7 +40,11 @@ function onSearchInput(event){
             createCountryMarUpAll(countryFetch);
             countryList.innerHTML = '';
         }
-    }).catch(error => Notify.failure('Oops, there is no country with that name'));
+    }).catch(error => {
+        Notify.failure('Oops, there is no country with that name')
+        countryList.innerHTML = '';
+        countryInfo.innerHTML = '';
+    });
 };
 
 // верстка пошуку країн
