@@ -46,27 +46,30 @@ function onSearchInput(event){
 // верстка пошуку країн
 function createCountryMarkUp(arr) {
     countryList.innerHTML = arr.map(({flags: {svg}, name: {official}}) => 
-        `<li>
-            <img src="${svg}" alt="${official}" width="100">
-            <h2>${official}</h2>
+        `<li class="item">
+            <img class="item-img" src="${svg}" alt="${official}" width="100">
+            <h2 class="item-header">${official}</h2>
         </li>`
 ).join('')};
 
 //  верстка однієї країни
 function createCountryMarUpAll(arr) {
     countryInfo.innerHTML = arr.map(({flags: {svg}, name:{official}, capital, population, languages}) => 
-    `<img src="${svg}" alt="${official}" width="50">
-    <span>${official}</span>
-    <div>
-      <span>Capital:</span>
+    `
+    <div class="container-header">
+        <img class="flag-img" src="${svg}" alt="${official}" width="50">
+        <h2 class="text">${official}</h2>
+    </div>
+    <div class="container">
+      <span class="container-text">Capital: </span>
       <span>${capital}</span>
     </div>
-    <div>
-      <span>Population:</span>
+    <div class="container">
+      <span class="container-text">Population: </span>
       <span>${population}</span>
     </div>
-    <div>
-      <span>Languages:</span>
+    <div class="container">
+      <span class="container-text">Languages: </span>
       <span>${Object.values(languages).join(', ')}</span>
     </div>`
 ).join('')};
