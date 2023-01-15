@@ -1,7 +1,7 @@
 import './css/styles.css';
 import { fetchCountries } from './fetchCountries';
-// import debounce from 'lodash.debounce';
-// import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import debounce from 'lodash.debounce';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const DEBOUNCE_DELAY = 300;
 
@@ -11,8 +11,7 @@ const countryInfo = document.querySelector('.country-info');
 
 
 // Пошук в input
-// debounce(onSearchInput, DEBOUNCE_DELAY) 
-searchBox.addEventListener('input', onSearchInput);
+searchBox.addEventListener('input', debounce(onSearchInput, DEBOUNCE_DELAY));
 
 function onSearchInput(event){ 
     
@@ -28,8 +27,7 @@ function onSearchInput(event){
         console.log(countryFetch);
 
         if(countryFetch.length > 10){
-            // Notify.info();
-            console.log('info')
+            Notify.info('Too many matches found. Please enter a more specific name.');
         }
 
         if (countryFetch.length >= 2 && countryFetch.length <= 10) {
